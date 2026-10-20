@@ -1,18 +1,14 @@
-# 🎬 Kandinsky 6.0 Studio — Text/Image → Video + Audio, and Photo → Lip-Sync
+# 🎬 Kandinsky 6.0 Studio
+
+**Text/Image → Video + Audio, and Photo → Lip-Sync**
 
 A local [Streamlit](https://streamlit.io) app for generating short videos with synchronized audio using **Kandinsky 6.0**, plus a separate **Lip Sync** page that makes a photo say any script you type, in many languages.
 
 ## 🎥 Demo Video
 
-<!-- Replace YOUR_VIDEO_ID with the part after "v=" in your YouTube URL.
-    
-[![Watch the demo on YouTube](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)]([https://www.youtube.com/watch?v=https://youtu.be/oC6Nkippr98](https://youtu.be/oC6Nkippr98))
+[![Watch the demo on YouTube](https://img.youtube.com/vi/oC6Nkippr98/maxresdefault.jpg)](https://youtu.be/oC6Nkippr98)
 
-*Click the thumbnail to watch on YouTube.*
-
-<!-- Plain-link alternative (no thumbnail):
-[▶️ Watch the demo](https://youtu.be/YOUR_VIDEO_ID)
--->
+*Click the thumbnail to watch on YouTube, or use this link: [▶️ Watch the demo](https://youtu.be/oC6Nkippr98)*
 
 ---
 
@@ -33,14 +29,14 @@ The app has two parts that use **different pipelines**:
 - Download checkpoints from inside the app (Pro, Pro-distill, Lite, Lite-distill) into a folder you choose
 - **GPU / VRAM check** with a recommended CPU-offload strategy for your card
 - Three VRAM modes: Balanced (`enable_model_cpu_offload`), Low VRAM (`enable_sequential_cpu_offload`), Max speed (everything on GPU)
-- Optional **super-resolution** pass with Kandinsky-6.0-VSR (2 × / 2.25 × / 4 ×)
-- Seed control, custom resolution and frame count, per-checkpoint recommended steps/guidance
+- Optional **super-resolution** pass with Kandinsky-6.0-VSR (2× / 2.25× / 4×)
+- Seed control, custom resolution and frame count, and per-checkpoint recommended steps and guidance
 - Download the result as `.mp4`
 
 ### Lip Sync page
 
 - Choose **Generate from text (TTS)** or **Upload my own audio**
-- Built-in language list: English, Spanish, French, German, Portuguese, Italian, Russian, Polish, Dutch, Hindi, Bengali, Tamil, plus "Other" where you enter any [MMS-TTS language code](https://dl.fbaipublicfiles.com/mms/misc/language_coverage_mms.html)
+- Built-in language list: English, Spanish, French, German, Portuguese, Italian, Russian, Polish, Dutch, Hindi, Bengali and Tamil, plus "Other" where you can enter any [MMS-TTS language code](https://dl.fbaipublicfiles.com/mms/misc/language_coverage_mms.html)
 - One-click setup in the sidebar: clones Wav2Lip and downloads its weights
 - Download the result as `.mp4`
 
@@ -62,11 +58,11 @@ your-repo/
 
 You can use **either** main script. `kandinsky6_app_with_log.py` is the same app plus a live monitor:
 
-- current phase, step-by-step progress, elapsed time and estimated time remaining
-- live GPU memory, GPU load and temperature, and system RAM
-- a scrolling per-step log
-- an end-of-run report with peak VRAM, a VRAM-over-time chart, a per-phase time table and a headroom warning
-- timing history saved to `~/.cache/kandinsky/ui_timing_history.json`, so the next run can estimate its duration before you press Generate
+- Current phase, step-by-step progress, elapsed time and estimated time remaining
+- Live GPU memory, GPU load and temperature, and system RAM
+- A scrolling per-step log
+- An end-of-run report with peak VRAM, a VRAM-over-time chart, a per-phase time table and a headroom warning
+- Timing history saved to `~/.cache/kandinsky/ui_timing_history.json`, so the next run can estimate its duration before you press Generate
 
 ---
 
@@ -124,18 +120,18 @@ streamlit run kandinsky6_app_with_log.py
 1. In the sidebar, pick a **checkpoint** (start with *Pro distilled* or *Lite distilled* for the fastest first run).
 2. Click **Download / verify weights** and wait for the download to finish.
 3. Choose a **VRAM strategy** that fits your GPU.
-4. Open the **Text → Video** or **Image → Video** tab, write a prompt (describe the scene, the action, the mood *and* what the audio should sound like), then click **Generate**.
+4. Open the **Text → Video** or **Image → Video** tab and write a prompt. Describe the scene, the action, the mood *and* what the audio should sound like. Then click **Generate**.
 5. Download the `.mp4`.
 
 Weights are stored in `~/.cache/kandinsky/weights` by default. Set the `KANDINSKY_HOME` environment variable (or edit the folder in the sidebar) to change this.
 
-**Default settings:** 480 × 864, 121 frames (about 5 s at 24 fps). Distilled checkpoints use 10 steps / guidance 1.0; full-quality checkpoints use 50 steps / guidance 5.0. Don't mix these up, as it degrades output.
+**Default settings:** 480 × 864, 121 frames (about 5 s at 24 fps). Distilled checkpoints use 10 steps / guidance 1.0, and full-quality checkpoints use 50 steps / guidance 5.0. Don't mix these up, as it degrades output.
 
 ### Lip Sync page
 
 Open **Lip Sync** from the sidebar navigation, then:
 
-1. In the sidebar click **Clone Wav2Lip code**, then **Download Wav2Lip weights**.
+1. In the sidebar, click **Clone Wav2Lip code**, then **Download Wav2Lip weights**.
 2. Install Wav2Lip's own pinned dependencies once:
    ```bash
    pip install -r ~/.cache/wav2lip/Wav2Lip/requirements.txt
