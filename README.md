@@ -6,7 +6,7 @@ A local [Streamlit](https://streamlit.io) app for generating short videos with s
 
 <!-- Replace YOUR_VIDEO_ID with the part after "v=" in your YouTube URL.
     
-[![Watch the demo on YouTube](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)]([https://www.youtube.com/watch?v=YOUR_VIDEO_ID](https://youtu.be/oC6Nkippr98))
+[![Watch the demo on YouTube](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)]([https://www.youtube.com/watch?v=https://youtu.be/oC6Nkippr98](https://youtu.be/oC6Nkippr98))
 
 *Click the thumbnail to watch on YouTube.*
 
